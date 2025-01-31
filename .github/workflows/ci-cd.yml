@@ -1,0 +1,28 @@
+name: Flyway CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  migrate:
+    runs-on: windows-latest
+    
+    steps:
+      # Step 1: Checkout the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v3     
+
+      # Step 2: Set environment variables (use GitHub Secrets for credentials)
+      - name: Set database connection parameters
+        env:
+          FLYWAY_URL: jdbc:sqlserver://localhost;databaseName=MyDatabase;encrypt=true;integratedSecurity=true;trustServerCertificate=true
+          FLYWAY_USER: santosh
+          FLYWAY_PASSWORD: santosh123
+        run: |
+      # Step 3: Run Flyway migration
+        flyway migrate -url=$FLYWAY_URL -user=$FLYWAY_USER -password=$FLYWAY_PASSWORD
