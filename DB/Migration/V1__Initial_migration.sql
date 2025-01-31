@@ -1,5 +1,5 @@
 -- Use the newly created database
-USE MyDatabase;
+USE MyDatabase; 
 
 -- Create a table named 'Users' within 'MyDatabase'
 CREATE TABLE Users (
