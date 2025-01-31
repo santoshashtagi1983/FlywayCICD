@@ -21,8 +21,8 @@ jobs:
       - name: Set database connection parameters
         env:
           FLYWAY_URL: jdbc:sqlserver://localhost;databaseName=MyDatabase;encrypt=true;integratedSecurity=true;trustServerCertificate=true
-          FLYWAY_USER: santosh
-          FLYWAY_PASSWORD: santosh123
+          FLYWAY_USER: 123
+          FLYWAY_PASSWORD: 123
         run: |
           # Step 3: Run Flyway migration
           flyway migrate -url=$FLYWAY_URL -user=$FLYWAY_USER -password=$FLYWAY_PASSWORD
